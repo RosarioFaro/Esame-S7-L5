@@ -18,13 +18,16 @@ function loadProduct(URL) {
     .then((product) => {
       const container = document.getElementById("product");
       container.innerHTML = `
-        <div class="card col">
-          <img src="${product.imageUrl}" class="card-img-top alt="${product.name}">
-          <div class="card-body">
-            <h5 class="card-title">${product.name}</h5>
-            <p class="card-text">${product.description}</p>
-            <p class="card-text">Prezzo: €${product.price}</p>
-            <a href="back-office.html?productId=${product._id}" class="btn btn-primary">Modifica</a>
+        <div class="d-flex justify-content-center mt-5">
+          <div>
+            <img src="${product.imageUrl}" class="card-img-top me-5" alt="${product.name}">
+          </div>
+          <div>
+            <h5 class="text-white">${product.name}</h5>
+            <p  class="text-white">${product.description}</p>
+            <p  class="text-white">${product.brand}</p>
+            <p  class="text-white">Prezzo: €${product.price}</p>
+            <a href="back-office.html?productId=${product._id}" class="btn btn-warning">Modifica</a>
           </div>
         </div>`;
     })
