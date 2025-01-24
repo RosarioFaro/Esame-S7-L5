@@ -20,7 +20,7 @@ function loadProducts(URL) {
         const row = document.getElementById("product-grid");
 
         const col = document.createElement("div");
-        col.classList.add("col-md-4", "col-lg-3", "my-2");
+        col.classList.add("col-md-3", "col-lg-2", "my-2");
 
         const card = document.createElement("div");
         card.classList.add("card", "mb-4", "shadow-sm");
@@ -44,10 +44,16 @@ function loadProducts(URL) {
         buttonDetails.classList.add("btn", "btn-sm", "btn-outline-secondary");
         buttonDetails.innerText = "Details";
 
+        const buttonModify = document.createElement("a");
+        buttonModify.classList.add("btn", "btn-sm", "btn-outline-warning");
+        buttonModify.href = `back-office.html?productId=${product._id}`;
+        buttonModify.innerText = "Modify";
+
         const price = document.createElement("small");
         price.classList.add("text-muted");
         price.innerText = product.price + "€";
 
+        btnGroup.appendChild(buttonModify);
         btnGroup.appendChild(buttonDetails);
         cardBody.appendChild(h5);
         cardBody.appendChild(btnGroup);
