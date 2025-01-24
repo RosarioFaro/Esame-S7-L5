@@ -9,7 +9,7 @@ function loadProducts(URL) {
   })
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Failed to fetch products");
+        throw new Error("Fallito a caricare il prodotti");
       }
       return response.json();
     })
@@ -26,7 +26,7 @@ function loadProducts(URL) {
         card.classList.add("card", "mb-4", "shadow-sm");
 
         const img = document.createElement("img");
-        img.classList.add("bd-placeholder-img", "card-img-top", "width-25", "height-25");
+        img.classList.add("bd-placeholder-img", "card-img-top");
         img.alt = product.name;
         img.src = product.imageUrl;
 
@@ -37,11 +37,16 @@ function loadProducts(URL) {
         h5.classList.add("card-title");
         h5.innerText = product.name;
 
+        const btnAndPrice = document.createElement("div");
+        btnAndPrice.classList.add("d-flex", "justify-content-between");
+
         const btnGroup = document.createElement("div");
         btnGroup.classList.add("btn-group");
 
-        const buttonDetails = document.createElement("button");
+        const buttonDetails = document.createElement("a");
         buttonDetails.classList.add("btn", "btn-sm", "btn-outline-secondary");
+        buttonDetails.href = `details.html?productId=${product._id}`;
+        buttonDetails.href = `details.html?productId=${product._id}`;
         buttonDetails.innerText = "Details";
 
         const buttonModify = document.createElement("a");
@@ -50,14 +55,15 @@ function loadProducts(URL) {
         buttonModify.innerText = "Modify";
 
         const price = document.createElement("small");
-        price.classList.add("text-muted");
+        price.classList.add("text-primary");
         price.innerText = product.price + "€";
 
         btnGroup.appendChild(buttonModify);
         btnGroup.appendChild(buttonDetails);
+        btnAndPrice.appendChild(btnGroup);
+        btnAndPrice.appendChild(price);
         cardBody.appendChild(h5);
-        cardBody.appendChild(btnGroup);
-        cardBody.appendChild(price);
+        cardBody.appendChild(btnAndPrice);
         card.appendChild(img);
         card.appendChild(cardBody);
         col.appendChild(card);
