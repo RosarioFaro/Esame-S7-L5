@@ -31,7 +31,7 @@ function loadProducts(URL) {
         img.src = product.imageUrl;
 
         const cardBody = document.createElement("div");
-        cardBody.classList.add("card-body");
+        cardBody.classList.add("card-body", "bg-secondary");
 
         const h5 = document.createElement("h5");
         h5.classList.add("card-title");
@@ -44,7 +44,7 @@ function loadProducts(URL) {
         btnGroup.classList.add("btn-group");
 
         const buttonDetails = document.createElement("a");
-        buttonDetails.classList.add("btn", "btn-sm", "btn-outline-secondary");
+        buttonDetails.classList.add("btn", "btn-sm", "btn-outline-info");
         buttonDetails.href = `details.html?productId=${product._id}`;
         buttonDetails.href = `details.html?productId=${product._id}`;
         buttonDetails.innerText = "Details";
@@ -55,7 +55,7 @@ function loadProducts(URL) {
         buttonModify.innerText = "Modify";
 
         const price = document.createElement("small");
-        price.classList.add("text-primary");
+        price.classList.add("text-white");
         price.innerText = product.price + "€";
 
         btnGroup.appendChild(buttonModify);
