@@ -93,3 +93,12 @@ deleteButton.addEventListener("click", () => {
       .catch((error) => console.error("Errore:", error));
   }
 });
+
+const resetButton = document.getElementById("reset-btn");
+
+resetButton.addEventListener("click", (event) => {
+  const confirmReset = confirm("Sei sicuro di voler resettare?");
+  if (!confirmReset) {
+    event.preventDefault();
+  }
+});

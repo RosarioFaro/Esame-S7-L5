@@ -1,5 +1,14 @@
+.card {
+  height: 400px; /* Imposta un'altezza fissa per tutte le card */
+  display: flex;
+  flex-direction: column;
+}
+
 .card-img-top {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+  object-fit: contain; /* Fa sì che l'immagine si adatti senza deformarsi */
+  height: 250px; /* Imposta un'altezza fissa per l'immagine */
+}
+
+.card-body {
+  flex-grow: 1; /* Permette al contenuto della card di espandersi per riempire lo spazio disponibile */
 }
