@@ -102,3 +102,12 @@ resetButton.addEventListener("click", (event) => {
     event.preventDefault();
   }
 });
+
+const saveButton = document.getElementById("submit-btn");
+
+saveButton.addEventListener("click", (event) => {
+  const confirmSave = confirm("Sicuro di voler salvare?");
+  if (!confirmSave) {
+    event.preventDefault();
+  }
+});
